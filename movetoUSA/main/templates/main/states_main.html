@@ -1,0 +1,25 @@
+
+
+
+
+{%extends 'main/layout.html'%}
+
+{%block title%}{{title}}{%endblock%}
+{%block content%}
+{%for p in cats%}
+    <h1>{{p.name}}</h1> 
+{%endfor%}
+<ul class="list-articles">
+    {%for i in posts%}
+        <li class="features">
+            <h2>{{i.title}}</h2>
+            <p class="state-preview-text">{{i.content|linebreaks|truncatewords:30}}</p>
+            <div class="clear"></div>
+            <h4 class="link-read-post"><a href="{{ i.get_absolute_url }}">Read post</a></h4>
+            {%if i.photo%} 
+                <p><img class="state-image" src="{{i.photo.url}}" alt=""></p>
+            {%endif%}
+        </li>
+    {%endfor%}
+</ul>
+{%endblock%}

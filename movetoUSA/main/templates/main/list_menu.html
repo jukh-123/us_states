@@ -1,0 +1,17 @@
+
+
+
+
+{%load main_tags%}
+{%for i in menu%}
+    {%if i.title == 'States'%}
+        <div class="dropdown">
+            <button class="states-button"><a href="{%url 'states_main'%}">States</button></a>
+                <div class="dropdown-content">
+                    {% show_categories %}
+                </div>
+        </div>
+    {%else%}
+        <li><a href="{%url i.url_name%}" class="main_list"><i class="{{i.font_awesome_class}}"></i>{{i.title}}</a></li>
+    {%endif%}
+{%endfor%}

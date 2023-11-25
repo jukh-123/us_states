@@ -1,0 +1,14 @@
+
+
+
+
+{%extends 'main/layout.html'%}
+{%block title%}{{title}}{%endblock%}
+{%block content%}
+<h1>{{title}}</h1>
+
+{%if post.photo%}
+    <img class="state-image-page" src="{{post.photo.url}}">
+{%endif%}
+    <div class="state-info"><p>{{post.content|linebreaks}}</p></div>
+{%endblock%}

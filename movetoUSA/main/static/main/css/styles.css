@@ -1,0 +1,218 @@
+
+
+
+html {
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+body {
+    background: #333333;
+    /* position: relative; */
+    height: 100%;
+}
+
+#aside {
+    float: left;
+    background: #181818;
+    width: 15%;
+    padding: 2.5%;
+    /* height: 100vh; */
+    padding-left: 0.5em;
+    color: white;
+    border-right: 5px solid #4d4d4d;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0; 
+    overflow:hidden;
+    /* z-index:-1; */
+}
+#aside img {
+    width: 185px;
+    float: left;
+}
+#aside .logo {
+    font-size:24px;
+    /* margin-left: 10px; */
+    font-weight: bold;
+    position: relative;
+    top: -15px;
+    
+}
+#aside h3{
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+#aside ul{
+    list-style: none;
+    
+}
+#aside ul li {
+    display: block;
+    margin-top: 20px;
+    transition: all .6s ease;
+}
+.states-button{
+    background-color: #fff;
+}
+.navigation-list .main_list {
+    color: rgb(107, 238, 255);
+    text-decoration: none;
+}
+
+#aside ul li:hover, #aside ul a:hover{
+    color: #9195e6;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+#aside a {
+    text-decoration: none;
+}
+
+#main {
+    float: left;
+    color: #fff;
+    background: #333333;
+    text-align: center;
+    width: 85%;
+    font-size: 40px;
+    margin-left: 20%;
+}
+
+#main .features {
+    float: left;
+    color: black;
+    text-align: left;
+    width: 75%;
+    list-style: none;
+    /* font-size: 40px; */
+    margin-top: 10px;
+    margin-left: -20px;
+    background: rgb(141, 141, 141);
+    
+    
+}
+
+
+#main h1 { /*title of page*/
+    font-size: 30px;
+    float: none;
+}
+#main .features p { /*anons*/
+    
+    max-width: 400px; 
+    margin: 20px; 
+    font-size: 18px;
+    /* text-align: left; */
+    
+}
+
+.alert-warning { /*news*/
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
+#main .alert-warning h3 { /*title news*/
+    font-size: 36px;
+}
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+.form-control {
+    margin: -15px;
+}
+
+.states {
+    list-style: none;
+}
+
+.list-articles{
+    overflow: hidden;
+}
+
+#main .features h4 {
+    float: right;
+    margin-right: 20px;
+    /* margin-bottom: 20px; */
+    background-color: #9195e6;
+}
+#main .features h1{
+    float: none;
+}
+#main .features a{
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+    /* position: absolute; */
+    width: 100%;
+    overflow: auto;
+    background-color: none;
+    color: black;
+
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.state-image{
+    width:300px;
+    display: block;
+}
+
+.state-image-page{
+    width: 300px;
+    float: left;
+}
+
+.state-info{
+    font-size: 24px;
+}
+
+.state-preview-text{
+    right: 10px;
+}
+
+#main p{
+    font-size: 18px;
+    
+}
+
+form{
+    float: left;
+    text-align: left;
+    margin-left:-50px;
+}
+.form-error{
+    font-size: 14px;
+    list-style: none;
+}
+textarea{
+    width: 500px;
+    height: 200px;
+}
+
+#main button{
+    font-size: 24px;
+    width: 55px;
+}
+
+.add-page-title{
+    font-size: 50px;
+    text-align: center;
+}
