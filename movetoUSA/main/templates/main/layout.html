@@ -23,7 +23,7 @@
 <body>
 
     <header class="navbar navbar-expand-lg navbar-light">
-        <nav class="container-xxl mx-4 p-0">
+        <nav class="container-fluid mx-4 p-0">
           <a href="{% url 'home' %}" class="navbar-brand me-4">
                 <img id="logo" width="70"  src="{% static 'main/images/logo.png' %}" alt="">
                 <span class="logo-text ">United States</span>
@@ -33,6 +33,10 @@
             <ul class="navbar-nav">
               {% show_menu %}
             </ul>
+            <div class="search-form">
+              <input type="text" class="me-2 form-control" placeholder="Search.." name="search" id="search-field">
+            </div>
+            <button type="submit" class="btn btn-outline-success" id="search-button"><i class="fa fa-search"></i></button>
           </div>
         </nav>
     </header>

@@ -13,6 +13,9 @@ html {
 body {
     height: 100%;
 }
+header .search-form{
+    margin-left: auto;
+}
 
 #dropdown-content{
     
