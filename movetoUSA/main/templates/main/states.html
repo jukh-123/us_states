@@ -5,8 +5,10 @@
 {%block title%}{{title}}{%endblock%}
 
 {%block content%}
+<div class="container">
     {%for i in posts%}
         <h1>{{i.title}}</h1>
         <p>{{i.content}}</p>
     {%endfor%}
+</div>
 {%endblock%}

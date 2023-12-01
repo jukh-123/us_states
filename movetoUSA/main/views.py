@@ -13,7 +13,6 @@ from django.views.generic import ListView
 posts = States.objects.all()
 
 def index(request):
-    
     context={
         'posts':posts,
         'title': 'Main Page',
@@ -21,16 +20,16 @@ def index(request):
     }
     return render(request, 'main/index.html', context=context)
 
-# def states_main(request):
-#     return render(request, 'main/states_main.html', {'posts':posts, 'title':'States home'})
+
+
 class StatesMain(ListView):
     model=States
     template_name='main/states_main.html'
     context_object_name='posts'
     title='States page'
     
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context=super().get_context_data(**kwargs)
+    def get_context_data(self, *args, object_list=None, **kwargs):
+        context=super().get_context_data(*args, **kwargs)
         context['title']=self.title
         return context
     
@@ -41,10 +40,11 @@ class StatesMain(ListView):
 
 def show_states(request, state_slug):
     post=get_object_or_404(States, slug=state_slug)
-    
+    photos_descriptions = ImagesForStates.objects.filter(state_id=post.id)
     context={
         'post':post,
         'title': post.title,
+        'photos_and_descriptions': photos_descriptions,
     }
     
     return render(request, 'main/post.html', context=context)
@@ -60,7 +60,7 @@ def show_category(request, cat_id):
     else:
         context={
         'posts':posts,
-        'title':'States',
+        'title':list(cats)[0].name,
         'cats':cats,
         }
         return render(request, 'main/states_main.html', context=context)
@@ -79,12 +79,22 @@ def show_category(request, cat_id):
 #         context['title']=title
 #         return context
     
-    
+def show_map(request):
+    paths = ModelForMap.objects.all()
+    context={
+        'title':'Map',
+        'paths':paths,
+        
+    }
+    return render(request, 'main/map_page.html', context=context)
     
 
 def archive(request, year):
-    if int(year) > 2022:
-        return redirect('home', permanent=True)
+    if year > 2023:
+        uri = reverse('home')
+        return redirect(uri) # ця сторінка переїхала на сторінку "home", permenent=True значить назавжди
+
+
     return HttpResponse(f'<h1>Archive for {year} year</h1>')
 
 def login(request):
@@ -93,15 +103,19 @@ def login(request):
 def add_page(request):
     if request.method == 'POST':
         form=AddPostForm(request.POST, request.FILES)
+        files = request.FILES.getlist("file_field")
         
         if form.is_valid()==True:
-            form.save()
+            f = form.save()
+            for i in files:
+                ImagesForStates.objects.create(state = f, photo = i)
             return redirect('states_main')
 
     else:
         form=AddPostForm()
+        imageform = FileFieldForm()
             
-    return render(request, 'main/add_page.html', {'title':'Add page', 'form':form})
+    return render(request, 'main/add_page.html', {'title':'Add page', 'form':form, "imageform":imageform})
 
 def about(request):
     return render(request, 'main/about_us.html', {'title':'About us'})

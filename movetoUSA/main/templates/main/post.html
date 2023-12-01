@@ -3,12 +3,89 @@
 
 
 {%extends 'main/layout.html'%}
-{%block title%}{{title}}{%endblock%}
-{%block content%}
-<h1>{{title}}</h1>
+{%load static%}
+{%load main_tags%}
 
-{%if post.photo%}
-    <img class="state-image-page" src="{{post.photo.url}}">
-{%endif%}
-    <div class="state-info"><p>{{post.content|linebreaks}}</p></div>
+{%block additional_head_data%}
+    <link rel="stylesheet" href="{% static 'main/css/post.css' %}">
+    <script defer src="{%static 'main/js/post.js'%}"></script>
+{%endblock%}
+
+
+{%block title%}{{title}}{%endblock%}
+
+
+{%block side_menu%}
+    {% aside_menu post.id %}
+{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row mt-5">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="row my-5" id="post-thumbnail">
+        {%if post.photo%}
+        <div class="col-12">
+            <img class="state-image-page img-fluid rounded-3 me-3 mb-3 float-start" src="{{post.photo.url}}">
+
+        {%endif%}
+            <table class="table table-responsive w-50" id="state-table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">
+                            #
+                        </th>
+                        <th scope="col">
+                            Lowest
+                        </th>
+                        <th scope="col">
+                            Average
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">Income</th>
+                      <td>{{post.lowest_annual_income}}</td>
+                      <td>{{post.salary}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Taxes</th>
+                      <td colspan="2"><a href="{{post.taxes}}">Click to see taxes from TaxFoundation.</a></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Living expenses</th>
+                      <td colspan="2">{{post.living_expenses}}</td>
+                    </tr>
+                    <tr>
+                        <th>Main jobs</th>
+                        <td colspan="2">{{post.jobs}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam doloribus iure nostrum reprehenderit. Accusamus aliquam asperiores aspernatur consectetur culpa deserunt distinctio dolore eveniet incidunt, labore laudantium magni modi obcaecati odit omnis optio perspiciatis quaerat, quod repellendus sapiente temporibus, vel voluptate voluptatibus. Aliquam, asperiores deserunt earum modi nihil numquam officiis quam quibusdam sit ut veniam, voluptate! Alias amet beatae blanditiis culpa cum delectus nihil non repellendus velit veniam? Eius enim numquam rem repellat veniam? Ab ad consequuntur facere ipsam, labore modi, necessitatibus numquam optio, praesentium quis reiciendis repellendus repudiandae velit! Ad adipisci aliquam aperiam autem commodi culpa cum cupiditate deleniti deserunt dolor dolorem doloremque dolorum ducimus eligendi error eveniet excepturi fugiat fugit, hic in ipsum magnam maiores minima nemo nostrum nulla numquam odio pariatur, perferendis placeat quia quibusdam quis recusandae repellendus sit unde velit! Deserunt eaque et quaerat veniam veritatis. Accusamus alias, aliquam aliquid animi architecto assumenda at autem beatae consequuntur cupiditate deleniti dignissimos dolorem dolores doloribus earum eius enim eos error esse ex facilis fugiat impedit incidunt laboriosam, magnam maiores natus neque odio optio quae quas quod recusandae repudiandae sapiente similique vel voluptates? Accusamus dolorum necessitatibus quas reiciendis veniam. A consequatur deleniti dignissimos explicabo ipsa ipsam iste, labore laboriosam officia perspiciatis porro quibusdam quidem repellat, vero, voluptates. Aliquid architecto aut autem commodi cupiditate debitis deleniti doloribus dolorum eaque enim in ipsum itaque magnam, magni nam nobis obcaecati officia quae repellat repudiandae sapiente sed soluta. Aperiam atque, consequuntur deleniti dicta doloremque, ducimus harum, iure quia quos reprehenderit repudiandae suscipit totam vitae?</p>
+    <!--    <p>{{post.content|linebreaks}}</p>-->
+        </div>
+    </div>
+
+
+    {%for x in photos_and_descriptions%}
+
+        <div class="row my-5 state-item " id="{{ x.photo_header }}">
+            <h3>{{x.photo_header}}</h3>
+            <div class="col-12 photo-of-state" >
+
+                <img class="state-images hidden img-fluid rounded-3" src="{{x.photo.url}}" alt="">
+                <p class="hidden">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequatur, enim eos esse, est hic molestias natus odit porro quibusdam quidem, totam voluptas. Doloremque doloribus ipsa quae voluptate voluptatum. Consequatur delectus illum ipsa non porro quae reprehenderit rerum sequi totam, veniam! Accusantium aliquam animi aperiam, architecto esse exercitationem expedita harum illum ipsam labore perferendis perspiciatis quasi qui reprehenderit rerum sed unde voluptatum! Cupiditate deserunt dolore, dolorem dolorum expedita in modi natus nihil obcaecati officiis omnis possimus tempora, voluptate. Aliquid, animi assumenda beatae debitis, doloremque ducimus expedita impedit minima, molestiae mollitia necessitatibus optio quo quod rem repudiandae ut veniam voluptates. Architecto cum dolore excepturi expedita illum omnis perferendis quis quo, saepe, suscipit ullam, velit voluptate! Amet consequatur distinctio eius minus nihil non quae suscipit voluptas. Ab ad aliquam aspernatur assumenda cum cumque delectus deleniti dicta distinctio doloribus dolorum harum illo ipsa nesciunt obcaecati odio officiis, pariatur tempora? Architecto commodi eaque, illo, inventore ipsa magni minima nihil nisi non officiis possimus ratione sit, vel. Accusamus amet deleniti deserunt distinctio, enim esse exercitationem impedit, incidunt libero nobis numquam odio pariatur, reiciendis repellat tempora vel velit voluptates. At, et, perferendis. A ab beatae consequatur consequuntur cumque ea esse expedita facere maiores nobis omnis, perferendis, perspiciatis quasi quis quisquam quo quod quos reiciendis repellendus rerum saepe soluta sunt tempore, ut voluptatibus! Dignissimos eius ex facilis ipsum laudantium magnam nesciunt numquam odio sed sequi. Aliquam amet aperiam architecto assumenda commodi consectetur culpa cum cupiditate delectus, doloremque dolorum ducimus error expedita incidunt itaque, iure, natus neque nihil numquam officiis omnis possimus quibusdam quisquam quos recusandae rem repellendus repudiandae saepe sapiente sed soluta tempore temporibus totam vel veritatis vitae voluptates! Cupiditate dolores ea earum nulla obcaecati optio possimus qui quis similique. Aspernatur dolores doloribus nulla! Accusamus ad aliquam amet asperiores assumenda, debitis dicta distinctio dolore dolorem dolorum ducimus enim et exercitationem explicabo facilis, fuga incidunt ipsam magni maiores natus necessitatibus nemo nulla numquam odio pariatur placeat possimus quae quaerat quibusdam quisquam quo recusandae sapiente similique tempora, ullam vitae voluptatum! Blanditiis culpa dolor, doloremque, eligendi eos, ex fuga iste labore minima nulla officiis qui repellat reprehenderit vel veritatis. Ipsum quod rem tempora! Adipisci obcaecati placeat quam sequi tempore tenetur veniam. Aliquam blanditiis cupiditate distinctio dolore eius facere nemo, obcaecati, perferendis quae qui repellat repellendus rerum! Accusamus commodi delectus doloremque doloribus facilis fugit ipsam necessitatibus rerum totam. Ab adipisci aut eos est facilis illo quasi repellat. Culpa earum eligendi ipsum, labore provident quas soluta sunt? Ab aliquam consequatur culpa delectus dolore dolorem ducimus eaque eum ex expedita fugit illum impedit ipsum iste maiores minus natus, nostrum quas quasi quibusdam quidem quod reiciendis, repellat sit vel! Architecto debitis, eaque eos, expedita illum modi nostrum omnis quia, ratione ut velit vitae! Alias aliquam animi, atque deleniti doloribus fuga hic itaque laborum, molestias, neque nesciunt officia quam quo sequi suscipit ut voluptatum. A, accusamus asperiores blanditiis consequatur culpa ducimus earum eos, ipsa molestias nemo nobis quaerat quisquam rerum sed voluptatum. Amet cupiditate facere vero. Facilis molestiae natus nisi officia provident, quae recusandae voluptatum.</p>
+        <!--        <p>{{x.description}}</p>-->
+            </div>
+
+
+
+        </div>
+
+    {%endfor%}
+</div>
+
 {%endblock%}

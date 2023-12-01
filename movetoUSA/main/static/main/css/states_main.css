@@ -1,0 +1,65 @@
+#main .features {
+    z-index: 1;
+    width: 90%;
+    margin: 2% auto;
+    color: white;
+    list-style: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    transition: transform 0.5s;
+}
+
+
+#main .features-wrapper:hover > .features{
+    transform: scale(1.05);
+}
+
+
+#main .features .state-preview-content-container{
+    padding: 1%;
+    width: 100%;
+}
+
+#main .features h4 {
+    float: right;
+    margin-right: 20px;
+    background-color: #9195e6;
+}
+#main .features h1{
+    float: none;
+}
+
+#main .features h2{
+    font-size: calc(26px + 0.390625vw);
+}
+
+#main .features p{
+    text-decoration: none;
+    font-size: calc(12px + 0.390625vw);
+}
+#main .features .state-preview-text p{
+    text-align: left;
+}
+
+.state-preview-text{
+    right: 10px;
+}
+
+#main .thumbnail-text{
+    font-size: calc(8px + 0.390625vw) !important;
+}
+
+#main .list-articles .hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+#main .list-articles .show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}

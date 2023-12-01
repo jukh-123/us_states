@@ -3,8 +3,94 @@
 
 
 {%extends 'main/layout.html'%}
+{%load static%}
+{%block additional_head_data%}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}">
+    <script defer src="{%static 'main/js/scroll-animation.js'%}"></script>
+{%endblock%}
 {%block title%}{{title}}{%endblock%}
 {%block content%}
-    <h1>Main page</h1>
-    <p>Lorem ipsum dolor sit atmet</p>
+<div class="container-fluid">
+    <div class="row head-main-page main-page-row">
+        <div class="head-main-page-text-wrapper">
+            <h1 class="text-start">Learn more about United States with this website</h1>
+            <h4 class="text-start">Discover incomes, jobs, taxes, geography, and other useful information on one page</h4>
+        </div>
+        
+        <div class="head-main-page-button-wrapper d-flex mt-4">
+            <a href="{% url 'states_main' %}">
+                <button type="button" class="btn btn-light">Discover</button>
+            </a>
+        </div>
+
+    </div>
+    <a href="#main-page-about-usa" class="dot"><div>&#8595;</div></a>
+
+
+
+    <div class="container">
+        <div class="row my-5 main-page-row" id="main-page-about-usa">
+            <div class="col-12 m-0 p-0">
+                <img src="{%static 'main/images/united-states-flag.jpg'%}" class="me-2 mb-2 float-start img-fluid rounded-3" alt="">
+                <p class="text-start">The United States of America (USA), commonly known as the United States (U.S.) or America, is a country primarily located in North America and consisting of 50 states, a federal district, five major unincorporated territories, and nine Minor Outlying Islands.[i] It includes 326 Indian reservations. The U.S. is the world's third-largest country by both land and total area.[c] It shares land borders with Canada to its north and with Mexico to its south and has maritime borders with the Bahamas, Cuba, Russia, and other nations.[j] With a population of over 333 million,[k] it is the most populous country in the Americas and the third-most populous in the world. The national capital of the United States is Washington, D.C., and its most populous city and principal financial center is New York City.
+    Indigenous peoples have inhabited the Americas for thousands of years. Beginning in 1607, British colonization led to the establishment of the Thirteen Colonies in what is now the Eastern United States. They clashed with the British Crown over taxation and political representation, which led to the American Revolution and the ensuing Revolutionary War. The United States declared independence on July 4, 1776, becoming the first nation-state founded on Enlightenment principles of unalienable natural rights, consent of the governed, and republicanism. The country began expanding across North America, spanning the continent by 1848. Sectional division over slavery led to the secession of the Confederate States of America, which fought the remaining states of the Union during the American Civil War (1861–1865). With the Union's victory and preservation, slavery was abolished nationally. By 1900, the United States had established itself as a great power, becoming the world's largest economy. After Japan's attack on Pearl Harbor in December 1941, the U.S. entered World War II on the side of the Allies. The aftermath of the war left the United States and the Soviet Union as the world's two superpowers and led to the Cold War, during which both countries engaged in a struggle for ideological dominance and international influence but avoided direct military conflict. During the Space Race, the United States landed the first humans on the Moon. Following the Soviet Union's collapse and the end of the Cold War, the United States emerged as the world's sole superpower.</p>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container my-5 text-start" id="features-of-website-container">
+        <h2 class="text-center">Features</h2>
+        <div class="row gx-4">
+            <div class="col ">
+                <div class="p-2 text-wrapper-features hidden rounded-3 h-100">
+                    <h4><a href="{% url 'map_page' %}">Interactive map</a></h4>
+                    <img src="{%static 'main/images/us-map-icon.png'%}" class="img-fluid" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam assumenda aut consectetur consequatur corporis, cupiditate deserunt doloremque doloribus ducimus ea earum error explicabo fuga fugit illum ipsum iure maiores molestias nam officia omnis perspiciatis possimus praesentium quaerat quam quasi ratione recusandae repudiandae rerum sapiente sit ut voluptates. Laboriosam, veniam?</p>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="p-2 text-wrapper-features hidden rounded-3 h-100">
+                    <h4>Incomes, taxes, expenses, and more</h4>
+                    <img src="{%static 'main/images/give-money.png'%}" class="img-fluid" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, amet, animi, distinctio fuga fugiat id iure libero magni molestiae provident quidem tenetur vel voluptates. Aliquam animi aspernatur aut consectetur corporis deleniti deserunt, error, eum harum inventore iste nesciunt nostrum obcaecati perferendis placeat provident qui reprehenderit ullam voluptas voluptate? Minus, optio!</p>
+                </div>
+            </div>
+            
+            <div class="col ">
+                <div class="p-2 text-wrapper-features hidden rounded-3 h-100">
+                    <h4><a href="{% url 'states_main' %}">Detailed information about states</a></h4>
+                    <img src="{%static 'main/images/information-about-states.png'%}" class="img-fluid" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aut beatae esse expedita harum hic illo, incidunt magnam molestias nam officia quas quidem recusandae temporibus voluptas voluptates voluptatum. A alias cum cumque esse et eveniet ex hic incidunt qui, ratione reprehenderit, rerum saepe tempora vel, vero? Commodi esse exercitationem fugiat?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h2>Move to USA</h2>
+        <div class="row  move-to-usa" id="main-page-move-to-usa">
+            <div class="col-12 m-0 p-0">
+                <img src="{%static 'main/images/plane-suitcase-usa.jpg'%}" class="me-2 mb-2 float-start img-fluid rounded-3" alt="">
+                <p class="text-start">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, aliquam consectetur architecto, aspernatur animi distinctio molestiae vel ducimus eveniet cupiditate commodi, officiis cumque nobis neque delectus eligendi perspiciatis saepe labore soluta deserunt voluptate dicta totam sed quibusdam? Culpa officiis laudantium nemo, vero porro vel maiores quia iure laboriosam repellat ducimus accusantium perspiciatis, impedit quibusdam obcaecati ex, doloremque iste magni inventore recusandae. Minima, labore? Voluptates numquam dolore maiores a et optio dolorum, voluptatum harum rem unde quis ut sequi consectetur eveniet est cupiditate exercitationem, similique odio quam velit, ullam modi amet! Alias quos qui porro eum veritatis sint quam hic facilis nisi. Animi eos consectetur odit exercitationem non reprehenderit iste est minima ut nostrum iusto harum aperiam, voluptatibus at dolores sed voluptates eligendi mollitia modi aspernatur temporibus obcaecati ratione molestias porro. Ab, voluptatem pariatur nulla numquam illum, quia sed iusto beatae magnam deserunt ipsum nisi voluptates expedita! Nisi eum corporis voluptatem, iusto ab fugiat! Quaerat natus voluptatem ducimus culpa, accusamus consequatur voluptate enim quibusdam neque reprehenderit quis aliquid sint inventore earum harum quos perferendis maxime similique quam quasi ipsam obcaecati in minus! Quibusdam at quos rem minima animi corporis atque architecto, illum quisquam hic impedit commodi aspernatur itaque amet, magni vero molestias ipsa! Iusto, suscipit ducimus, quibusdam, impedit dolores voluptate id maiores sequi doloremque dignissimos adipisci error officiis aut expedita animi culpa nihil? Placeat voluptatem, est maiores tempore a omnis voluptates error possimus eos facilis consequuntur obcaecati voluptatum qui nemo. Aperiam repellat autem sequi, esse accusantium consequatur earum ducimus fugiat nulla.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h2>Regions of USA</h2>
+        <div class="row regions-of-usa" id="main-page-regions-of-usa">
+            <div class="col-12 m-0 p-0">
+                <img src="{%static 'main/images/map-of-usa-regions.png'%}" class="me-2 mb-2 float-end img-fluid rounded-3" alt="">
+                <p class="text-start">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, aliquam consectetur architecto, aspernatur animi distinctio molestiae vel ducimus eveniet cupiditate commodi, officiis cumque nobis neque delectus eligendi perspiciatis saepe labore soluta deserunt voluptate dicta totam sed quibusdam? Culpa officiis laudantium nemo, vero porro vel maiores quia iure laboriosam repellat ducimus accusantium perspiciatis, impedit quibusdam obcaecati ex, doloremque iste magni inventore recusandae. Minima, labore? Voluptates numquam dolore maiores a et optio dolorum, voluptatum harum rem unde quis ut sequi consectetur eveniet est cupiditate exercitationem, similique odio quam velit, ullam modi amet! Alias quos qui porro eum veritatis sint quam hic facilis nisi. Animi eos consectetur odit exercitationem non reprehenderit iste est minima ut nostrum iusto harum aperiam, voluptatibus at dolores sed voluptates eligendi mollitia modi aspernatur temporibus obcaecati ratione molestias porro. Ab, voluptatem pariatur nulla numquam illum, quia sed iusto beatae magnam deserunt ipsum nisi voluptates expedita! Nisi eum corporis voluptatem, iusto ab fugiat! Quaerat natus voluptatem ducimus culpa, accusamus consequatur voluptate enim quibusdam neque reprehenderit quis aliquid sint inventore earum harum quos perferendis maxime similique quam quasi ipsam obcaecati in minus! Quibusdam at quos rem minima animi corporis atque architecto, illum quisquam hic impedit commodi aspernatur itaque amet, magni vero molestias ipsa! Iusto, suscipit ducimus, quibusdam, impedit dolores voluptate id maiores sequi doloremque dignissimos adipisci error officiis aut expedita animi culpa nihil? Placeat voluptatem, est maiores tempore a omnis voluptates error possimus eos facilis consequuntur obcaecati voluptatum qui nemo. Aperiam repellat autem sequi, esse accusantium consequatur earum ducimus fugiat nulla.</p>
+            </div>
+            <p><a href="{%url 'map_page'%}">Discover more with interactive map</a></p>
+
+        </div>
+    </div>
+    
+</div>
 {%endblock%}

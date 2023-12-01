@@ -2,5 +2,7 @@
 
 
 {%for g in cats%}
-    <p class="dropdown-list"><a href="{{ g.get_absolute_url }}">{{g.name}}</a></p>
+
+    <a href="{{ g.get_absolute_url }}"><li class="dropdown"><p class="dropdown-list">{{g.name}}</p></li></a>
+
 {%endfor%}

@@ -1,0 +1,79 @@
+
+svg{
+    position: absolute;
+    left: 10%;
+}
+path:not([class="shape-fill"]) {
+    stroke: rgb(170, 170, 170);
+    fill:white !important;
+    opacity: 0.7;
+    z-index: 100;
+    transition: fill .4s ease;
+    transform-origin: center center;
+}
+
+path:not([class="shape-fill"]):hover {
+    cursor: pointer;
+    transform: scale(1.005, 1.005);
+}
+
+#us-map {
+    display: block;
+    width: 90%;
+    height: 90%;
+}
+
+#details-box {
+    box-shadow: 0px 7px 40px rgba(0, 0, 0, 0.7);
+    opacity: 0%;
+    padding: 1rem;
+    border-radius: 8px;
+    
+    position: fixed;
+    color: white;
+    
+    background-color: black;
+    width: fit-content;
+    transform: translateX(-50%);
+    transition: opacity .4s ease;
+    z-index: 110;
+}
+
+#details-box h6{
+    font-size: 24px !important;
+    font-family: "Poppins";
+    color:rgb(255, 255, 134)255, 240);
+}
+#details-box p{
+    font-size: 16px !important;
+    font-family: "Poppins";
+    max-width: 350px;
+}
+
+
+.category-text-map{
+    position: absolute;
+
+    color: rgba(0, 0, 0, 1);
+    font-size: 60px;
+    font-weight: bolder;
+}
+#west-text{
+    top: 40%;
+    left: 27%;
+}
+
+#south-text{
+    top: 60%;
+    left: 51%;
+}
+
+#midwest-text{
+    top: 32%;
+    left: 47%;
+}
+
+#north-east-text{
+    top: 10%;
+    left: 71%;
+}

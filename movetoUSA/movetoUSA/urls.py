@@ -27,4 +27,4 @@ urlpatterns = [
 if settings.DEBUG == True:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = pageNotFound
+handler404 = pageNotFound # кожний раз при 404 буде викликатись ця функція

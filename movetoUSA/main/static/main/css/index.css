@@ -1,0 +1,75 @@
+#main .head-main-page{
+    color: white;
+    background-color: #4a4a4a;
+    background-image: url("../images/main-header-page.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    padding-top: 250px;
+    padding-bottom: 250px;
+
+}
+#features-of-website-container h4{
+    color:#96B8DA;
+}
+
+
+#main .head-main-page .head-main-page-text-wrapper{
+    margin-top: 7%;
+    color: var(--main-text-color);
+}
+#main .head-main-page .head-main-page-text-wrapper h1{
+    font-size: 64px;
+}
+#main .head-main-page{
+    padding-left: 7%;
+}
+
+#main-page-about-usa img, #main-page-move-to-usa img, #main-page-regions-of-usa img{
+    width: 35%
+}
+
+#main .text-wrapper-features{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: transform 0.5s ;
+}
+#main .text-wrapper-features:hover{
+    transform: scale(1.05);
+    
+}
+
+#main .text-wrapper-features img{
+    width: 33%;
+}
+
+#features-of-website-container .hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+#features-of-website-container .show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+#main .dot{
+    height: 50px;
+    width: 50px;
+    text-decoration: none;
+    font-size: 30px;    
+    background-color: #bbb;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 1%;
+    display: inline-block;
+}
+#main .dot div{
+    padding-top:2%;
+}
